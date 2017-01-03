@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='login.js'></script>
+</head>
+<body>
+<header>
+	<div id="logo">
+		<img src="test.jpeg">
+	</div>
+	<div id='header_message'>
+		Welcome,guest
+	</div>
+</header>
+<section>
+	
+	<div class="field_divide"></div>
+	<div id="body_blank">
+		<img src="test.jpeg">
+	</div>
+	<div id="login_field">
+		<div class="field_divide"></div>
+		<div id="body_title">
+		login or join us
+		</div>
+		<div id="field_input">
+		<ul>
+			<li>
+				<label>User Name:</label>
+				<br>
+				<input type="text" title="User name" class="input_area" name="login_name" id="login_name">
+			</li>
+			<li>
+				<label>Password:</label>
+				<br>
+				<input type="password" title="Password" class="input_area" name="login_pwd" id="login_pwd">
+			</li>
+		</ul>
+		</div>
+		<div id="button_area">
+			<button id="submit_login" name="login_send" type="submit" onclick='js_login()'>
+				<span>Login</span>
+			</button>
+			<div id="sign_up">
+				<a href="">click here</a> to join us!
+			</div>
+		</div>
+	</div>
+</section>
+<footer>
+	©woo 2016
+</footer>
+</body>
+</html>

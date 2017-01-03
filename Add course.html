@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Course</title>
+	<link rel="stylesheet" type="text/css" href="add_course.css">
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='add_course.js'></script>
+</head>
+<body>
+<header>
+	<div id="logo">
+		<img src="test.jpeg">
+	</div>
+	<div id='header_message'>
+		Welcome,guest
+	</div>
+</header>
+<section>
+	<div class="field_divide"></div>
+	<div id="body_register">
+		<div class="field_divide"></div>
+		<div id="body_title">
+			add course
+		</div>
+		<ul>
+			<li>
+				<label>Course name:</label>
+				<br>
+				<input type="text" name="phone_number" id="course_name" class="input_area">
+			</li>
+			<li>
+				<label>Course time:</label>
+				<br>
+				<input type="text" name="veri_code" id="course_t" class="input_area">
+			</li>
+			<li>
+				<label>Course describe:</label>
+				<br>
+				<textarea type="text" name="user_name" id="course_desc" class="input_area"></textarea>
+			</li>
+		</ul>
+		<div id='error_box'>input correct word!</div>
+		<button id="submit_form" type="Submit" onclick="subForm()">Submit</button>
+	</div>
+</section>
+<footer>
+	©woo 2016
+</footer>
+</body>
+
+<style type="text/css">
+	body{
+	margin:0;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 2%;
+	background-color: rgba(240,242,243,0.8);
+	font-family: 'open sans';
+	color: gray;
+}
+
+header{
+	height: 10%;
+	position: absolute;
+	top:2%;
+	width: 90%;
+	/*background-color: white;*/
+}
+#logo{
+	position: relative;
+	height: 100%;
+	width: 30%;
+	overflow: hidden;
+	float: left;
+
+}
+
+#logo img{
+	width: 100%;
+}
+
+#header_message{
+	position: relative;
+	float: right;
+	top: 40%;
+}
+
+section{
+	position:absolute;
+	top: 15%;
+	height: 800px;
+	width: 90%;
+	background-color: white;
+}
+
+.field_divide{
+	height: 10%;
+}
+
+#body_register{
+	width: 80%;
+	height: 80%;
+	background-color: rgba(240,242,243,0.8);
+	margin-left: 10%;
+	box-shadow: 5px 5px 5px gray;
+}
+
+#body_title{
+	margin-left: 5%;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'open sans';
+}
+
+#body_register ul{
+	width: 90%;
+	margin-left: 5%;
+	list-style: none;
+	padding: 0;
+	font-family: 'open sans';
+	font-size: 13px;
+}
+.input_area {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 5px 2% 5px 2%;
+    width: 35%;
+    outline: none;
+    border-radius: 10px;
+    margin-right: 10%;
+    font-size: 100%;
+    margin-bottom: 15px;
+}
+
+#course_desc{
+	width: 50%;
+	height: 300px;
+	resize: none;
+}
+#error_box{
+	height: 5%;
+	width: 90%;
+	margin-left: 5%;
+	color: red;
+	font-family: 'open sans';
+}
+
+button {
+    font-family: 'Open Sans', sans-serif;
+    border: 2px solid #000;
+    background: #fff;
+    padding: 10px 12px;
+    transition: color 300ms ease-in-out 0s,
+    			background-color 300ms ease-in-out 0s, 
+    			background-position 300ms ease-in-out 0s;
+}
+
+button:hover{
+	background-color: #000;
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+
+#get_code{
+	width: 8%;
+	padding: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+#submit_form{
+	margin-left: 5%;
+}
+
+</style>
+
+<script type="text/javascript">
+	function 
+</script>
+</html>

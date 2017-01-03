@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign up</title>
+	<link rel="stylesheet" type="text/css" href="sign_up.css">
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='sign_up.js'></script>
+</head>
+<body>
+<header>
+	<div id="logo">
+		<img src="test.jpeg">
+	</div>
+	<div id='header_message'>
+		Welcome,guest
+	</div>
+</header>
+<section>
+	<div class="field_divide"></div>
+	<div id="body_register">
+		<div class="field_divide"></div>
+		<div id="body_title">
+			finish essential information to join us
+		</div>
+		<ul>
+			<li>
+				<label>Your phone number:</label>
+				<br>
+				<input type="text" name="phone_number" id="reg_phone" class="input_area">
+				<button id="get_code" type="Submit" onclick="sendCode()">code</button>
+			</li>
+			<li>
+				<label>Verification code:</label>
+				<br>
+				<input type="text" name="veri_code" id="reg_vr_code" class="input_area">
+			</li>
+			<li>
+				<label>Choose a user name:</label>
+				<br>
+				<input type="text" name="user_name" id="reg_name" class="input_area">
+			</li>
+			<li>
+				<label>Your Password:</label>
+				<br>
+				<input type="password" name="password" id="reg_pwd" class="input_area">
+			</li>
+			<li>
+				<label>Confirm password:</label>
+				<br>
+				<input type="password" name="phone_number" id="reg_pwd_2" class="input_area">
+			</li>
+		</ul>
+		<div id='error_box'>input correct word!</div>
+		<button id="submit_form" type="Submit" onclick="subForm()">Submit</button>
+	</div>
+</section>
+<footer>
+	©woo 2016
+</footer>
+</body>
+</html>

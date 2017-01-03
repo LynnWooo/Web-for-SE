@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Experiment list</title>
+	<link rel="stylesheet" type="text/css" href="exp_list.css">
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='exp_list.js'></script>
+</head>
+<body>
+	<header>
+		<div id="logo">
+			<img src="test.jpeg">
+		</div>
+		<div id='header_message'>
+			Welcome,guest
+		</div>
+	</header>
+	<section>
+		<div class="field_divide"></div>
+		<div id="body_table">
+			<div class="field_divide"></div>
+			<div id="body_title">
+				该课程包含实验列表
+			</div>
+			<div id='exp_table'>
+				<div id="table_top_guide" class="table_line">
+					<div id="table_guide_name" class="table_name">课程名</div>
+					<div id="table_guide_id" class="table_id">课程ID</div>
+					<div id="table_guide_user" class="table_user">试验名称</div>
+					<div id="table_guide_time" class="table_time">截止时间</div>
+					<div id="table_guide_button" class="table_button">操作</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+<style type="text/css">
+	body{
+		margin:0;
+		padding-left: 5%;
+		padding-right: 5%;
+		padding-top: 2%;
+		background-color: rgba(240,242,243,0.8);
+		font-family: 'open sans';
+		color: gray;
+	}
+
+	header{
+		height: 10%;
+		position: absolute;
+		top:2%;
+		width: 90%;
+		/*background-color: white;*/
+	}
+	#logo{
+		position: relative;
+		height: 100%;
+		width: 30%;
+		overflow: hidden;
+		float: left;
+
+	}
+
+	#logo img{
+		width: 100%;
+	}
+
+	#header_message{
+		position: relative;
+		float: right;
+		top: 40%;
+	}
+
+	section{
+		position:absolute;
+		top: 15%;
+		
+		width: 90%;
+		background-color: white;
+		margin-bottom: 50px;
+	}
+
+	.field_divide{
+		height: 5%;
+	}
+
+	#body_table{
+		margin-top: 30px;
+		width: 80%;
+		margin-left: 10%;
+	}
+
+	#body_title{
+		padding-left: 5%;
+		font-size: 18px;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-family: 'open sans';
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-bottom: 15px;
+		box-shadow: 4px 4px 5px gray;
+
+		background-color: rgba(240,242,243,0.8);
+	}
+
+	#body_table{
+		margin-left: 5%;
+		width: 90%;
+	}
+
+	.table_line{
+		margin-left: 5%;
+		width: 90%;
+		text-align: center;
+		background-color: transparent;
+		margin-bottom: 3px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.table_name{
+		padding-top: 5px;
+		padding-bottom: 5px;
+		position: relative;
+		float: left;
+		width: 20%;
+
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.table_id{
+		float: left;
+		width: 20%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		background-color: #999999;
+		color: #dddddd;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	#table_guide_button{
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.table_user{
+		float: left;
+		width: 20%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.table_time{
+		float: left;
+		width: 20%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		background-color: #999999;
+		color: #dddddd;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.table_button{
+		float: left;
+		width: 20%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+
+	}
+
+	.table_button button{
+		font-family: 'Open Sans', sans-serif;
+		border: 2px solid #000;
+		background: #fff;
+		padding: 5px 12px;
+		transition: color 300ms ease-in-out 0s,
+		background-color 300ms ease-in-out 0s, 
+		background-position 300ms ease-in-out 0s;
+		box-shadow: 2px 2px 2px gray;
+	}
+
+	.table_button button:hover{
+		background-color: #000;
+		color: #fff;
+		border: 2px solid #fff;
+	}
+
+</style>
+
+<script type="text/javascript">
+	var courseList=new Array();
+	var idList=new Array();
+	var userList=new Array();
+	var timeList=new Array();
+	$(document).ready(function(){
+		initData();
+		initPage();
+	});
+	
+//init data
+function initData(){
+	for(var i=0;i<15;i++){
+		courseList[i]=i;
+		idList[i]=i*200;
+		userList[i]=i+10083;
+		timeList[i]=new Date();
+	}
+}
+//end init
+
+function initPage(){
+	for (var i = 0; i < courseList.length; i++) {
+		$("#exp_table").append(createDiv(courseList[i],idList[i],userList[i],timeList[i]));
+	}
+}
+
+function createDiv(name,id,user,time){
+	var temp=$("<div></div>");
+	temp.attr("id",name+"_exp");
+	temp.attr("class",'table_line');
+
+	var c_name=$("<div></div>");
+	c_name.html(name);
+	c_name.attr("class","table_name");
+
+	var c_id=$("<div></div>");
+	c_id.html(id);
+	c_id.attr("class","table_id");
+
+	var c_user=$("<div></div>");
+	c_user.html(user);
+	c_user.attr("class","table_user");
+
+	var c_time=$("<div></div>");
+	c_time.html(time.toLocaleTimeString());
+	c_time.attr("class","table_time");
+
+	var c_button=$("<div></div>");
+	c_button.html('<button>EDIT</button>');
+	c_button.attr('class','table_button');
+
+
+	$(temp).append(c_name);
+	$(temp).append(c_id);
+	$(temp).append(c_user);
+	$(temp).append(c_time);
+	$(temp).append(c_button);
+
+	return temp;
+}
+
+
+</script>
+</html>

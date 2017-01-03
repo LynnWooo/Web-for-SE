@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign up</title>
+	<link rel="stylesheet" type="text/css" href="view.css">
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='view.js'></script>
+</head>
+<body>
+	<header>
+		<div id="logo">
+			<img src="test.jpeg">
+		</div>
+		<div id='header_message'>
+			Welcome,guest
+		</div>
+	</header>
+	<section>
+		<div class="field_divide"></div>
+		<div class="container" id="manage">
+			<div id="getWidth">
+				<h4>课程列表</h4>
+				<div id="wyx_top_guide">
+					<div id="wyx_guide_img">课程名</div>
+					<div id="wyx_guide_id" style="background:#999999">课程ID</div>
+					<div id="wyx_guide_name">创建用户</div>
+					<div id="wyx_guide_operate" style="background:#999999">操作</div>
+				</div>
+				<div id="wyx_userList"></div>
+				<div id="wyx_pages"></div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		©woo 2017
+	</footer>
+</body>
+
+<script type="text/javascript">
+	var imgList=new Array();
+	var idList=new Array();
+	var nameList=new Array();
+	var currentPage=1;
+	var pageCnt=1;
+
+  //初始化数据，现在是测试数据
+  $.ajax({
+  	url: "user/getUserInfo",
+  	dataType: "json",
+  	cache: false,
+  	data: null,
+  	type: "POST",
+  	success: function (data) {
+  		for (var i = 0, length = data.Data.length; i < length; i++) {
+  			imgList[i] = data.Data[i].pic;
+  			idList[i] = data.Data[i].id;
+  			nameList[i] = data.Data[i].name;
+
+  		}
+  		initpage();
+  	}
+
+  });
+    //end初始化数据
+
+    function initpage(){
+
+    	createPageDiv();
+    	init();
+    	init_format();
+
+    	$(".wyx_page_div").click(function () {
+    		changePage(parseInt($(this).attr("id")));
+    	});
+
+    	$(".wyx_del_user").click(function () {
+    		var id = $(this).parent().attr("id");
+    		var temp = id[0];
+    		for (var i = 1; i < id.length; i++) {
+    			if (id[i] == '_')
+    				break;
+    			temp += id[i];
+    		}
+    		alert(temp);
+    		delUser(temp);
+    	});
+
+    	$(".wyx_rst_pwd").click(function () {
+    		var id = $(this).parent().attr("id");
+    		var temp = id[0];
+    		for (var i = 1; i < id.length; i++) {
+    			if (id[i] == '_')
+    				break;
+    			temp += id[i];
+    		}
+    		alert(temp);
+    		rstPwd(temp);
+    	});
+
+    }
+
+    function createUser(img,id,name){
+    	var temp=$("<div></div>");
+    	temp.attr("id",id+"_user");
+
+    	var image=$("<img>");
+    	image.attr("src",img);
+    	image.attr("class","wyx_user_img");
+
+    	var u_id=$("<div></div>");
+    	u_id.html(id);
+
+    	u_id.attr("class","wyx_user_id");
+
+    	var u_name=$("<div></div>");
+    	u_name.html(name);
+    	u_name.attr("class","wyx_user_name");
+
+    	var dele_button=$("<div></div>");
+    	dele_button.html("<a>delete</a>");
+    	dele_button.attr("class","wyx_del_user");
+
+    	var rst_button=$("<div></div>");
+    	rst_button.html("<a>reset password</a>");
+    	rst_button.attr("class","wyx_rst_pwd");
+
+    	$(temp).append(image);
+    	$(temp).append(u_id);
+    	$(temp).append(u_name);
+    	$(temp).append(dele_button);
+    	$(temp).append(rst_button);
+
+    	return temp;
+    }
+
+    function createPageDiv(){
+    	pageCnt=parseInt(imgList.length/10+1);
+    	if(imgList.length%10==0){
+    		pageCnt-=1;
+    	}
+    	for(var i=0;i<pageCnt;i++){
+    		var temp=$("<div></div>");
+    		temp.attr("id",(i+1)+"_page_wyx");
+    		temp.attr("class","wyx_page_div");
+    		temp.html("<p>"+(i+1)+"</p>");
+    		$("#wyx_pages").append(temp);
+    	}
+
+    }
+
+    function init_format(){
+    	var w=parseInt($("#getWidth").css("width"));
+    	w/=5;
+    	$(".wyx_user_img").css("marginLeft",(w-36)/2+"px");
+    	$(".wyx_user_img").css("marginRight",(w-36)/2+"px");
+    	$(".wyx_user_name,.wyx_user_id,#wyx_guide_name,#wyx_guide_id,#wyx_guide_img").css("width",w+"px");
+    	$(".wyx_del_user,.wyx_rst_pwd").css("width",w-1+"px");
+    	$("#wyx_guide_operate").css("width",w*2+"px");
+
+    	w=parseInt($("#getWidth").css("width"));
+    	$("#1_page_wyx").css("marginLeft",((w-26*pageCnt)/2+3)+"px");
+    }
+
+    function init(){
+    	for(var i=0;i<pageCnt;i++){
+    		$("#"+(i+1)+"_page_wyx").css("background","transparent");
+    		if(i+1==currentPage)
+    			$("#"+(i+1)+"_page_wyx").css("background","#62cad9");
+    	}
+
+    	$("#wyx_userList").html("");
+    	for(var i=0;i<10;i++) {
+    		var j = i + (currentPage - 1) * 10;
+    		if (j == imgList.length)
+    			break;
+    		var temp=createUser(imgList[j],idList[j],nameList[j]);
+    		$("#wyx_userList").append(temp);
+    	}
+
+    }
+
+    function changePage(page){
+    	currentPage=page;
+    	init();
+    	init_format();
+    }
+
+//--------------学霸是杀鸡----------------->
+function delUser(id){
+	window.location = "~/user/delete/" + id;
+}
+
+function rstPwd(id){
+
+}
+//-------------end学霸是杀鸡--------------->
+</script>
+
+
+<style type="text/css">
+	.wyx_user_img{
+		text-align: center;
+		border-radius: 50%;
+		height: 36px;
+		width: 36px;
+		position: relative;
+		float: left;
+		margin:10px 0px 10px 0px;
+	}
+	.wyx_user_id{
+		text-align: center;
+		font-size: 16px;
+		position: relative;
+		float: left;
+		padding:20px 0px 20px 0px;
+		background: #999999;
+	}
+	.wyx_user_name{
+		text-align: center;
+		font-size: 16px;
+		position: relative;
+		float: left;
+		padding:20px 0px 20px 0px;
+	}
+	.wyx_del_user{
+		text-align: center;
+		font-size: 16px;
+		position: relative;
+		float: left;
+		margin-right: 1px;
+		padding:20px 0px 20px 0px; 
+		background: #999999;
+
+	}
+	.wyx_rst_pwd{
+		text-align: center;
+		font-size: 16px;
+		position: relative;
+		float: left;
+		margin-left: 1px;
+		padding:20px 0px 20px 0px;
+		background: #999999;
+	}
+	#wyx_top_guide div{
+		position: relative;
+		float: left;
+		text-align: center;
+		font-size: 18px;
+		margin-bottom: 2px;
+	}
+	.wyx_page_div{
+		border:1px solid #777777;
+		border-radius: 4px;
+		position: relative;
+		float: left;
+		width: 20px;
+		height: 30px;
+		text-align: center;
+		padding-top: 6.5px;
+		margin: 3px;
+		margin-top: 20px;
+	}
+	.wyx_page_div:hover{
+		background: #336699;
+	}
+</style>
+</html>
