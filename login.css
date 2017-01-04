@@ -149,6 +149,14 @@ section{
 	font-family: 'open sans';
 	font-size: 10px;
 }
+
+#error_box{
+	height: 5%;
+	width: 90%;
+	margin-left: 5%;
+	color: red;
+	font-family: 'open sans';
+}
 footer{
 	position: absolute;
 	bottom: 2%;

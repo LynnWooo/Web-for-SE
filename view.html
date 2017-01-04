@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign up</title>
+	<title>view</title>
 	<link rel="stylesheet" type="text/css" href="view.css">
 	<script type="text/javascript" src='jquery.js'></script>
 	<script type="text/javascript" src='view.js'></script>
@@ -12,256 +12,357 @@
 			<img src="test.jpeg">
 		</div>
 		<div id='header_message'>
-			Welcome,guest
+			欢迎，游客
 		</div>
 	</header>
 	<section>
-		<div class="field_divide"></div>
-		<div class="container" id="manage">
-			<div id="getWidth">
-				<h4>课程列表</h4>
-				<div id="wyx_top_guide">
-					<div id="wyx_guide_img">课程名</div>
-					<div id="wyx_guide_id" style="background:#999999">课程ID</div>
-					<div id="wyx_guide_name">创建用户</div>
-					<div id="wyx_guide_operate" style="background:#999999">操作</div>
-				</div>
-				<div id="wyx_userList"></div>
-				<div id="wyx_pages"></div>
-			</div>
-		</div>
+		<div id="teacher_info">
+            <div id="info_pic">
+                <img src="test.jpeg">
+            </div>
+            <div id="info_list">
+                <ul>
+                    <li>
+                        姓名：
+                    </li>
+                    <li>
+                        工号：
+                    </li>
+                    <li>
+                        联系电话：
+                    </li>
+                </ul>
+            </div>      
+        </div>
+        <div id='course_title'>
+            以下为您创建的课程：
+            <button id='new_course' onclick="window.location.assign('add_course.html')">new</button>
+        </div>
+        <div id='course_table'>
+            <div id="table_top_guide" class="table_line">
+                    <div id="table_guide_name" class="table_name">课程名</div>
+                    <div id="table_guide_id" class="table_id">课程ID</div>
+                    <div id="table_guide_user" class="table_user">创建用户</div>
+                    <div id="table_guide_time" class="table_time">课程时间</div>
+                    <div id="table_guide_button" class="table_button">操作</div>
+                </div>
+        </div>
 	</section>
-	<footer>
-		©woo 2017
-	</footer>
 </body>
+<style type="text/css">
+
+#teacher_info{
+    width:90%;
+    margin-top: 30px;
+}
+#info_pic{
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+    height: 200px;
+    overflow: hidden;
+}
+
+#info_list{
+    width: 30%;
+    float: left;
+    margin-left: 20%;
+    height: 200px;
+}
+
+#info_list ul{
+    list-style: none;
+    margin-top: 50px;
+}
+#info_list li{
+    margin-top: 30px;
+}
+
+#course_table{
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+}
+#course_title{
+    background-color: rgba(240,242,243,0.8);
+    box-shadow: 3px 3px 3px gray;
+    margin-top: 30px;
+    margin-left: 5%;
+    width: 85%;
+    float: left;
+    padding: 15px 0 15px 5%;
+
+}
+
+#table_top_guide{
+    margin-top: 30px;
+}
+#new_course{
+    float: right;
+    margin-right: 5%;
+
+}
+    body{
+    margin:0;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    background-color: rgba(240,242,243,0.8);
+    font-family: 'open sans';
+    color: gray;
+}
+
+header{
+    height: 10%;
+    position: absolute;
+    top:2%;
+    width: 90%;
+    /*background-color: white;*/
+}
+#logo{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    overflow: hidden;
+    float: left;
+
+}
+
+#logo img{
+    width: 100%;
+}
+
+#header_message{
+    position: relative;
+    float: right;
+    top: 40%;
+}
+
+
+section{
+    position:absolute;
+    top: 15%;
+    width: 90%;
+    background-color: white;
+}
+
+.field_divide{
+    height: 10%;
+}
+
+#manage{
+    background-color: rgba(240,242,243,0.8);
+    width: 90%;
+    margin: 0;
+    margin-left: 5%;
+    height: 80%;
+    padding: 0;
+}
+
+footer{
+    position: absolute;
+    bottom: 2%;
+    text-align: center;
+    width: 90%;
+    color:#cccccc;
+    font-weight: 200;
+}
+    .table_line{
+        float: left;
+        margin-left: 5%;
+        width: 90%;
+        text-align: center;
+        background-color: transparent;
+    }
+
+    .table_name{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: relative;
+        float: left;
+        width: 20%;
+
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_id{
+        float: left;
+        width: 15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #999999;
+        color: #dddddd;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    #table_guide_button{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_user{
+        float: left;
+        width: 20%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_time{
+        float: left;
+        width: 20%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #999999;
+        color: #dddddd;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_button{
+        float: left;
+        width: 25%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+    }
+
+    button{
+        font-family: 'Open Sans', sans-serif;
+        border: 2px solid #000;
+        background: #fff;
+        padding: 5px 12px;
+        transition: color 300ms ease-in-out 0s,
+                    background-color 300ms ease-in-out 0s, 
+                    background-position 300ms ease-in-out 0s;
+        text-transform: uppercase;
+    }
+
+    button:hover{
+        background-color: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+
+</style>
 
 <script type="text/javascript">
-	var imgList=new Array();
-	var idList=new Array();
-	var nameList=new Array();
-	var currentPage=1;
-	var pageCnt=1;
+    var courseList=new Array();
+    var idList=new Array();
+    var userList=new Array();
+    var timeList=new Array();
 
-  //初始化数据，现在是测试数据
-  $.ajax({
-  	url: "user/getUserInfo",
-  	dataType: "json",
-  	cache: false,
-  	data: null,
-  	type: "POST",
-  	success: function (data) {
-  		for (var i = 0, length = data.Data.length; i < length; i++) {
-  			imgList[i] = data.Data[i].pic;
-  			idList[i] = data.Data[i].id;
-  			nameList[i] = data.Data[i].name;
+    var login_id;
+    var login_name;
 
-  		}
-  		initpage();
-  	}
+$(document).ready(function(){
+    // $.ajax({
+    //     url:'http://101.200.61.252:8080/',       //undefined
+    //     dataType:'json',
+    //     cache:false,
+    //     data:null,
+    //     type:'POST',
+    //     success:function(data){
+    //         login_id=data.identify;
+    //         login_name=data.name;
+    //     }
 
-  });
-    //end初始化数据
-
-    function initpage(){
-
-    	createPageDiv();
-    	init();
-    	init_format();
-
-    	$(".wyx_page_div").click(function () {
-    		changePage(parseInt($(this).attr("id")));
-    	});
-
-    	$(".wyx_del_user").click(function () {
-    		var id = $(this).parent().attr("id");
-    		var temp = id[0];
-    		for (var i = 1; i < id.length; i++) {
-    			if (id[i] == '_')
-    				break;
-    			temp += id[i];
-    		}
-    		alert(temp);
-    		delUser(temp);
-    	});
-
-    	$(".wyx_rst_pwd").click(function () {
-    		var id = $(this).parent().attr("id");
-    		var temp = id[0];
-    		for (var i = 1; i < id.length; i++) {
-    			if (id[i] == '_')
-    				break;
-    			temp += id[i];
-    		}
-    		alert(temp);
-    		rstPwd(temp);
-    	});
-
+    // });
+    initData();
+    initPage();
+});
+    
+//init data
+function initData(){
+    for(var i=0;i<15;i++){
+        courseList[i]=i;
+        idList[i]=i*200;
+        userList[i]=i+10083;
+        timeList[i]=new Date();
     }
+    // $.ajax({
+    //     url:'http://101.200.61.252:8080/',       //undefined
+    //     dataType:'json',
+    //     cache:false,
+    //     data:'identify='+user_id+'&password='+user_pwd,
+    //     type:'POST',
+    //     success:function(data){
+    //         for (var i = 0; i < data.length; i++) {
+    //             data[i];
+    //         }
+    //     }
 
-    function createUser(img,id,name){
-    	var temp=$("<div></div>");
-    	temp.attr("id",id+"_user");
-
-    	var image=$("<img>");
-    	image.attr("src",img);
-    	image.attr("class","wyx_user_img");
-
-    	var u_id=$("<div></div>");
-    	u_id.html(id);
-
-    	u_id.attr("class","wyx_user_id");
-
-    	var u_name=$("<div></div>");
-    	u_name.html(name);
-    	u_name.attr("class","wyx_user_name");
-
-    	var dele_button=$("<div></div>");
-    	dele_button.html("<a>delete</a>");
-    	dele_button.attr("class","wyx_del_user");
-
-    	var rst_button=$("<div></div>");
-    	rst_button.html("<a>reset password</a>");
-    	rst_button.attr("class","wyx_rst_pwd");
-
-    	$(temp).append(image);
-    	$(temp).append(u_id);
-    	$(temp).append(u_name);
-    	$(temp).append(dele_button);
-    	$(temp).append(rst_button);
-
-    	return temp;
-    }
-
-    function createPageDiv(){
-    	pageCnt=parseInt(imgList.length/10+1);
-    	if(imgList.length%10==0){
-    		pageCnt-=1;
-    	}
-    	for(var i=0;i<pageCnt;i++){
-    		var temp=$("<div></div>");
-    		temp.attr("id",(i+1)+"_page_wyx");
-    		temp.attr("class","wyx_page_div");
-    		temp.html("<p>"+(i+1)+"</p>");
-    		$("#wyx_pages").append(temp);
-    	}
-
-    }
-
-    function init_format(){
-    	var w=parseInt($("#getWidth").css("width"));
-    	w/=5;
-    	$(".wyx_user_img").css("marginLeft",(w-36)/2+"px");
-    	$(".wyx_user_img").css("marginRight",(w-36)/2+"px");
-    	$(".wyx_user_name,.wyx_user_id,#wyx_guide_name,#wyx_guide_id,#wyx_guide_img").css("width",w+"px");
-    	$(".wyx_del_user,.wyx_rst_pwd").css("width",w-1+"px");
-    	$("#wyx_guide_operate").css("width",w*2+"px");
-
-    	w=parseInt($("#getWidth").css("width"));
-    	$("#1_page_wyx").css("marginLeft",((w-26*pageCnt)/2+3)+"px");
-    }
-
-    function init(){
-    	for(var i=0;i<pageCnt;i++){
-    		$("#"+(i+1)+"_page_wyx").css("background","transparent");
-    		if(i+1==currentPage)
-    			$("#"+(i+1)+"_page_wyx").css("background","#62cad9");
-    	}
-
-    	$("#wyx_userList").html("");
-    	for(var i=0;i<10;i++) {
-    		var j = i + (currentPage - 1) * 10;
-    		if (j == imgList.length)
-    			break;
-    		var temp=createUser(imgList[j],idList[j],nameList[j]);
-    		$("#wyx_userList").append(temp);
-    	}
-
-    }
-
-    function changePage(page){
-    	currentPage=page;
-    	init();
-    	init_format();
-    }
-
-//--------------学霸是杀鸡----------------->
-function delUser(id){
-	window.location = "~/user/delete/" + id;
+    // });
 }
 
-function rstPwd(id){
+
+//end init
+
+function initPage(){
+    for (var i = 0; i < courseList.length; i++) {
+        $("#course_table").append(createDiv(courseList[i],idList[i],userList[i],timeList[i]));
+    }
+}
+
+
+
+function createDiv(name,id,user,time){
+    var temp=$("<div></div>");
+    temp.attr("id",name+"_course");
+    temp.attr("class",'table_line');
+
+    var c_name=$("<div></div>");
+    c_name.html(name);
+    c_name.attr("class","table_name");
+
+    var c_id=$("<div></div>");
+    c_id.html(id);
+    c_id.attr("class","table_id");
+
+    var c_user=$("<div></div>");
+    c_user.html(user);
+    c_user.attr("class","table_user");
+
+    var c_time=$("<div></div>");
+    c_time.html(time.toLocaleTimeString());
+    c_time.attr("class","table_time");
+
+    var c_button=$("<div></div>");
+    c_button.html("<button onclick='delCourse("+id+")'>delete</button> <button onclick='courseDetail("+id+"'>detail</button>");
+    c_button.attr('class','table_button');
+
+
+    $(temp).append(c_name);
+    $(temp).append(c_id);
+    $(temp).append(c_user);
+    $(temp).append(c_time);
+    $(temp).append(c_button);
+
+    return temp;
+}
+
+function delCourse(id){
+    $.ajax({
+        url:'http://101.200.61.252:8080/teacher/cancel',       //not tested
+        dataType:'json',
+        cache:false,
+        data:'teacher_id='+login_id+'&course_id='+id,
+        type:'POST',
+        success:function(data){
+            if(data.status==0)
+                alert('success!');
+            else
+                alert('error!');
+        }
+    });
 
 }
-//-------------end学霸是杀鸡--------------->
+function courseDetail(id){
+    
+}
 </script>
-
-
-<style type="text/css">
-	.wyx_user_img{
-		text-align: center;
-		border-radius: 50%;
-		height: 36px;
-		width: 36px;
-		position: relative;
-		float: left;
-		margin:10px 0px 10px 0px;
-	}
-	.wyx_user_id{
-		text-align: center;
-		font-size: 16px;
-		position: relative;
-		float: left;
-		padding:20px 0px 20px 0px;
-		background: #999999;
-	}
-	.wyx_user_name{
-		text-align: center;
-		font-size: 16px;
-		position: relative;
-		float: left;
-		padding:20px 0px 20px 0px;
-	}
-	.wyx_del_user{
-		text-align: center;
-		font-size: 16px;
-		position: relative;
-		float: left;
-		margin-right: 1px;
-		padding:20px 0px 20px 0px; 
-		background: #999999;
-
-	}
-	.wyx_rst_pwd{
-		text-align: center;
-		font-size: 16px;
-		position: relative;
-		float: left;
-		margin-left: 1px;
-		padding:20px 0px 20px 0px;
-		background: #999999;
-	}
-	#wyx_top_guide div{
-		position: relative;
-		float: left;
-		text-align: center;
-		font-size: 18px;
-		margin-bottom: 2px;
-	}
-	.wyx_page_div{
-		border:1px solid #777777;
-		border-radius: 4px;
-		position: relative;
-		float: left;
-		width: 20px;
-		height: 30px;
-		text-align: center;
-		padding-top: 6.5px;
-		margin: 3px;
-		margin-top: 20px;
-	}
-	.wyx_page_div:hover{
-		background: #336699;
-	}
-</style>
 </html>
