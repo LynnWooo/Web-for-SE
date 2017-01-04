@@ -37,18 +37,17 @@ header{
 section{
 	position:absolute;
 	top: 15%;
-	height: 80%;
 	width: 90%;
 	background-color: white;
 }
 
 .field_divide{
-	height: 10%;
+	height: 50px;
 }
 
 #body_register{
 	width: 80%;
-	height: 80%;
+	height: 500px;
 	background-color: rgba(240,242,243,0.8);
 	margin-left: 10%;
 	box-shadow: 5px 5px 5px gray;
@@ -60,6 +59,7 @@ section{
 	text-transform: uppercase;
 	font-weight: normal;
 	font-family: 'open sans';
+	padding-top: 30px;
 }
 
 #body_register ul{
