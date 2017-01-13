@@ -4,9 +4,11 @@ var exper_id;
 var teacher_id;
 var exper;
 $(window).load(function(){
+
     exper = args();
     exper_id = args().exper_id;
     teacher_id = args().teacher_id;
+    gohome();
     //初始化实验详情
     $.ajax({
         url:'http://101.200.61.252:8080/student/experdetail?exper_id='+exper_id,
@@ -18,7 +20,6 @@ $(window).load(function(){
             exp_detail = result;
             writeExpDetail(exp_detail);
         },error:function(result){
-            alert(result.name);
         }
     });
 
@@ -29,9 +30,7 @@ $(window).load(function(){
 
 function addConfirm(){
     var name = $('#cname').val();
-    alert(file);
     var formData = new FormData();
-    alert('send!');
     formData.append("image_list",$('#file')[0].files[0]);
     formData.append("name", $('#cname').val());
     formData.append("suggest_time", $("#suggest_time").val() + ":00");
@@ -49,13 +48,9 @@ function addConfirm(){
         processData: false,
         contentType: false,
         beforeSend:function(){
-            alert('process ');
         },
         success : function(responseStr){
-            alert('send image success');
         },error : function(responseStr){
-            alert('send image fail');
-            alert(responseStr.status);
         }
     });
 
@@ -87,19 +82,16 @@ function student(){
         var p = [];
         for(var n in args)
             p.push( n + '=' + args[n]);
-        return encodeURI('?' + p.join('&'));
+        return unescape('?' + p.join('&'));
     };
     location.href = 'studentReport.html' + params(exper);
 }
 
 function init(result){
-    alert("init");
     var s = ["a", "s"];
-    for(var i in s)
-        alert(s[i]);
     for(var i in result){
         $("#stepBox").append(" \
-    <div class='col-sm-6' id='step_detail'> \
+    <div class='col-sm-8' id='step_detail'> \
         <div class='wrapper wrapper-content animated fadeInUp'> \
                 <div class='ibox'>  \
                     <div class='ibox-content'>  \
@@ -147,12 +139,10 @@ function writeExpDetail(result){
     $("#experiment_description").html(result.descbibe);
     $("#experiment_attach_url").attr('href', 'http://101.200.61.252:8080/'+result.attach_url);
     $("#experiment_pic_url").attr('src','http://101.200.61.252:8080/'+result.pic_url);
-    alert('http://101.200.61.252:8080/'+result.pic_url);
     $("#experiment_pic_url").css("width", "50px");
 }
 
 function getStep(){
-    alert('getStep');
     $.ajax({
         url:'http://101.200.61.252:8080/student/enterexper?exper_id='+exper_id,
         dataType:'json',
@@ -160,10 +150,9 @@ function getStep(){
         data:'',
         type:'POST',
         success:function(result){
-            alert('getStep success');
             setStep(result);
+            $("#number").html(result.length);
         },error:function(result){
-            alert('getStep fail');
         }
     });
 }
@@ -223,22 +212,29 @@ function test(){
              + '&note=' + '1'
              + '&question_list=' + '11'
              + '&image_list=' + '';
-    alert(stepInfo);
-    alert( 'http://101.200.61.252:8080/exper/insertstep?'+stepInfo)
     $.ajax({
         url: 'http://101.200.61.252:8080/exper/insertstep?',
 
         type: 'POST',
         success: function(){
-            alert('ajax success');
         },error: function(){
-            alert(stepInfo);
         }
     });
 }
 
 
-
+function gohome(){
+    var params = function(args){
+        var p = [];
+        for(var n in args)
+            p.push( n + '=' + args[n]);
+        return unescape('?' + p.join('&'));
+    };
+    if (top == this) {
+    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + exper.name + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
+    $('body').append(gohome);
+}
+}
 
 
 

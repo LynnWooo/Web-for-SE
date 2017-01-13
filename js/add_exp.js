@@ -21,7 +21,7 @@
 				a.append("time_id",time);
 				a.append("describe",$("textarea[name='exp_desc']").val());
 			
-		alert(a.image+'\n'+a.describe+'\n'+a.time_id);
+		//alert(a.image+'\n'+a.describe+'\n'+a.time_id);
 		$.ajax({
 			url:'http://101.200.61.252:8080/teacher/insertexper',
 			dataType:'json',
@@ -33,14 +33,14 @@
         	contentType: false,
 			success:function(data){
 				if(data.status==0){
-					alert('success!');
+					alert('添加成功!');
 					setTimeout(window.location.assign('course.html?teacher_id='+login_id+'&name='+escape(login_name)+"&course_id="+course_id),500);
 				}
-				else alert("fail");
+				else alert("失败");
 
 			},
 			error:function(){
-				alert('error');
+				alert('发生错误');
 			}
 
 		});

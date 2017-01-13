@@ -22,7 +22,7 @@
 				a.append("describe",$("textarea[name='course_desc']").val());
 				a.append("time_id",time);
 			
-		alert(a.image+'\n'+a.describe+'\n'+a.time_id);
+		//alert(a.image+'\n'+a.describe+'\n'+a.time_id);
 		$.ajax({
 			url:'http://101.200.61.252:8080/teacher/insertcourse',
 			dataType:'json',
@@ -33,12 +33,12 @@
 			processData: false,
         	contentType: false,
 			success:function(data){
-				alert('success!');
+				alert('添加成功!');
 				setTimeout(window.location.assign('view.html?id='+login_id+'&name='+escape(login_name)),500);
 
 			},
 			error:function(){
-				alert('error');
+				alert('失败！');
 			}
 
 		});

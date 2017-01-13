@@ -75,7 +75,10 @@ footer{
     height: 200px;
     overflow: hidden;
 }
-
+#info_pic img{
+    float: right;
+    height: 100%;
+}
 #info_list{
     width: 30%;
     float: left;
@@ -199,16 +202,6 @@ footer{
         margin-bottom: 5px;
     }
 
-    .table_id{
-        float: left;
-        width: 15%;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background-color: #999999;
-        color: #dddddd;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
 
     #table_guide_button{
         margin-top: 5px;
@@ -221,17 +214,17 @@ footer{
         padding-top: 5px;
         padding-bottom: 5px;
 
+        background-color: #999999;
+        color: #dddddd;
         margin-top: 5px;
         margin-bottom: 5px;
     }
 
     .table_time{
         float: left;
-        width: 15%;
+        width: 30%;
         padding-top: 5px;
         padding-bottom: 5px;
-        background-color: #999999;
-        color: #dddddd;
         margin-top: 5px;
         margin-bottom: 5px;
     }
@@ -241,10 +234,11 @@ footer{
         width: 15%;
         padding-top: 5px;
         padding-bottom: 5px;
-        background-color: #999999;
-        color: #dddddd;
         margin-top: 5px;
         margin-bottom: 5px;
+
+        background-color: #999999;
+        color: #dddddd;
     }
 
     .table_button{
@@ -252,6 +246,7 @@ footer{
         width: 25%;
         padding-top: 5px;
         padding-bottom: 5px;
+
 
     }
 

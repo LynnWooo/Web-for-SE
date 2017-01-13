@@ -25,7 +25,7 @@ $(document).ready(function(){
     //         alert('123');
     //     }
     // });
-    alert(login_id+login_name);
+    //alert(login_id+login_name);
     initData();
     initPage();
 });
@@ -66,7 +66,7 @@ function initData(){
                 courseList[i]=data[i].courseName;
                 idList[i]=data[i].id;
                 userList[i]=login_id;
-                timeList[i]=data[i].time_list[0];
+                timeList[i]=data[i].time_list;
                 statusList[i]=data[i].status;
             }
             for (var i = 0; i < courseList.length; i++) {
@@ -102,16 +102,17 @@ function createDiv(name,id,user,time,status){
     c_name.html(name);
     c_name.attr("class","table_name");
 
-    var c_id=$("<div></div>");
-    c_id.html(id);
-    c_id.attr("class","table_id");
-
     var c_user=$("<div></div>");
     c_user.html(user);
     c_user.attr("class","table_user");
 
+
     var c_time=$("<div></div>");
-    c_time.html(time);
+    if(time.length==1)
+    c_time.html(time[0]);
+    else{
+        c_time.html(time[0]+'/'+time[1]);
+    }
     c_time.attr("class","table_time");
 
     var c_status=$("<div></div>");
@@ -131,7 +132,6 @@ function createDiv(name,id,user,time,status){
 
 
     $(temp).append(c_name);
-    $(temp).append(c_id);
     $(temp).append(c_user);
     $(temp).append(c_time);
     $(temp).append(c_status);
@@ -150,12 +150,12 @@ function delCourse(id){
         type:'POST',
         success:function(data){
             if(data.status==0){
-                alert('success!');
+                alert('删除成功!');
                 window.location.assign("view.html?id="+login_id+"&name="+escape(login_name));
             }
 
             else
-                alert('error!');
+                alert('错误!');
         }
     });
 
@@ -167,19 +167,19 @@ function courseDetail(id){
 
 function rejoin(id){
     $.ajax({
-        url:'http://101.200.61.252:8080/teacher/reinsert',       //not tested
+        url:'http://101.200.61.252:8080/teacher/reinsert',       //tested
         dataType:'json',
         cache:false,
         data:'teacher_id='+login_id+'&course_id='+id,
         type:'POST',
         success:function(data){
             if(data.status==0){
-                alert('success!');
+                alert('重新开放成功!');
                 window.location.assign("view.html?id="+login_id+"&name="+escape(login_name));
             }
 
             else
-                alert('error!');
+                alert('错误!');
         }
     });
 }

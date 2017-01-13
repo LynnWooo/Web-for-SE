@@ -37,7 +37,7 @@ header{
 section{
 	position:absolute;
 	top: 15%;
-	height: 800px;
+	height: 1000px;
 	width: 90%;
 	background-color: white;
 }
@@ -48,7 +48,6 @@ section{
 
 #body_register{
 	width: 80%;
-	height: 80%;
 	background-color: rgba(240,242,243,0.8);
 	margin-left: 10%;
 	box-shadow: 5px 5px 5px gray;
