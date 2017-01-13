@@ -1,0 +1,274 @@
+body{
+	margin:0;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 2%;
+	background-color: rgba(240,242,243,0.8);
+	font-family: 'open sans';
+	color: gray;
+}
+
+header{
+	height: 10%;
+	position: absolute;
+	top:2%;
+	width: 90%;
+	/*background-color: white;*/
+}
+#logo{
+	position: relative;
+	height: 100%;
+	width: 30%;
+	overflow: hidden;
+	float: left;
+
+}
+
+#logo img{
+	width: 100%;
+}
+
+#header_message{
+	position: relative;
+	float: right;
+	top: 40%;
+}
+
+
+section{
+	position:absolute;
+	top: 15%;
+	width: 90%;
+	background-color: white;
+}
+
+.field_divide{
+	height: 10%;
+}
+
+#manage{
+	background-color: rgba(240,242,243,0.8);
+	width: 90%;
+	margin: 0;
+	margin-left: 5%;
+	height: 80%;
+	padding: 0;
+}
+
+footer{
+	position: absolute;
+	bottom: 2%;
+	text-align: center;
+	width: 90%;
+	color:#cccccc;
+	font-weight: 200;
+}
+
+#teacher_info{
+    width:90%;
+    margin-top: 30px;
+}
+#info_pic{
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+    height: 200px;
+    overflow: hidden;
+}
+
+#info_list{
+    width: 30%;
+    float: left;
+    margin-left: 20%;
+    height: 200px;
+}
+
+#info_list ul{
+    list-style: none;
+    margin-top: 50px;
+}
+#info_list li{
+    margin-top: 30px;
+}
+
+#course_table{
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+}
+#course_title{
+    background-color: rgba(240,242,243,0.8);
+    box-shadow: 3px 3px 3px gray;
+    margin-top: 30px;
+    margin-left: 5%;
+    width: 85%;
+    float: left;
+    padding: 15px 0 15px 5%;
+
+}
+
+#table_top_guide{
+    margin-top: 30px;
+}
+#new_course{
+    float: right;
+    margin-right: 5%;
+
+}
+    body{
+    margin:0;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    background-color: rgba(240,242,243,0.8);
+    font-family: 'open sans';
+    color: gray;
+}
+
+header{
+    height: 10%;
+    position: absolute;
+    top:2%;
+    width: 90%;
+    /*background-color: white;*/
+}
+#logo{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    overflow: hidden;
+    float: left;
+
+}
+
+#logo img{
+    width: 100%;
+}
+
+#header_message{
+    position: relative;
+    float: right;
+    top: 40%;
+}
+
+
+section{
+    position:absolute;
+    top: 15%;
+    width: 90%;
+    background-color: white;
+}
+
+.field_divide{
+    height: 10%;
+}
+
+#manage{
+    background-color: rgba(240,242,243,0.8);
+    width: 90%;
+    margin: 0;
+    margin-left: 5%;
+    height: 80%;
+    padding: 0;
+}
+
+footer{
+    position: absolute;
+    bottom: 2%;
+    text-align: center;
+    width: 90%;
+    color:#cccccc;
+    font-weight: 200;
+}
+    .table_line{
+        float: left;
+        margin-left: 5%;
+        width: 90%;
+        text-align: center;
+        background-color: transparent;
+    }
+
+    .table_name{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: relative;
+        float: left;
+        width: 15%;
+
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_id{
+        float: left;
+        width: 15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #999999;
+        color: #dddddd;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    #table_guide_button{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_user{
+        float: left;
+        width: 15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_time{
+        float: left;
+        width: 15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #999999;
+        color: #dddddd;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_status{
+        float: left;
+        width: 15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #999999;
+        color: #dddddd;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .table_button{
+        float: left;
+        width: 25%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+    }
+
+    button{
+        font-family: 'Open Sans', sans-serif;
+        border: 2px solid #000;
+        background: #fff;
+        padding: 5px 12px;
+        transition: color 300ms ease-in-out 0s,
+                    background-color 300ms ease-in-out 0s, 
+                    background-position 300ms ease-in-out 0s;
+        text-transform: uppercase;
+        width: 75px;
+    }
+
+    button:hover{
+        background-color: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }

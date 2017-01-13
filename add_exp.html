@@ -1,0 +1,109 @@
+<meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>添加实验</title>
+	<link rel="stylesheet" type="text/css" href="css/add_exp.css">
+	<script type="text/javascript" src='js/jquery.js'></script>
+	<script type="text/javascript" src='js/add_exp.js'></script>
+</head>
+<body>
+<header>
+	<div id="logo">
+		<img src="test.jpeg">
+	</div>
+	<div id='header_message'>
+		欢迎，游客
+	</div>
+</header>
+<section>
+	<div class="field_divide"></div>
+	<div id="body_register">
+		<div class="field_divide"></div>
+		<div id="body_title">
+			添加实验
+		</div>
+		<ul>
+			<li>
+				<label>实验名：</label>
+				<br>
+				<input type="text" name="exp_name" id="exp_name" class="input_area">
+			</li>
+			<li>
+				<label>实验时间：</label>
+				<br>
+				<br>
+				<label>首选时间：</label>
+				<div id='form_area_1'>
+					<form id='week_form'>
+					<select name="week">
+
+						<option value=1>第1周</option>
+						<option value=2>第2周</option>
+						<option value=3>第3周</option>
+						<option value=4>第4周</option>
+						<option value=5>第5周</option>
+						<option value=6>第6周</option>
+						<option value=7>第7周</option>
+						<option value=8>第8周</option>
+						<option value=9>第9周</option>
+						<option value=10>第10周</option>
+						<option value=11>第11周</option>
+						<option value=12>第12周</option>
+						<option value=13>第13周</option>
+						<option value=14>第14周</option>
+						<option value=15>第15周</option>
+						<option value=16>第16周</option>
+						<option value=17>第17周</option>
+					</select>
+					</form>
+				<form id='weekdays_form'>
+					<select name="weekdays">
+						<option value=1>周一</option>
+						<option value=2>周二</option>
+						<option value=3>周三</option>
+						<option value=4>周四</option>
+						<option value=5>周五</option>
+						<option value=6>周六</option>
+						<option value=7>周日</option>
+					</select>
+				</form>
+				<form id='time_form'>
+					<select name="time">
+						<option value=1>8:00-9:40</option>
+						<option value=2>10:00-11:40</option>
+						<option value=3>13:30-15:05</option>
+						<option value=4>15:25-17:00</option>
+						<option value=5>18:30-20:10</option>
+					</select>
+				</form>
+				<br>
+				</div>
+				
+			</li>
+			<li>
+				<label>实验图片：</label>
+				<input type="file" name="upload" id='upload_img'>
+			</li>
+			<br>
+			<li>
+				<label>实验附件：</label>
+				<input type="file" name="attachment" id="upload_att">
+			</li>
+			<br>
+			<li>
+				<label>实验描述：</label>
+				<br>
+				<textarea type="text" name="exp_desc" id="exp_desc" class="input_area"></textarea>
+			</li>
+		</ul>
+		<div id='error_box'></div>
+		<button id="submit_form" type="Submit" onclick="subForm()">Submit</button>
+	</div>
+</section>
+<footer>
+	©woo 2016
+</footer>
+</body>
+
+</html>
