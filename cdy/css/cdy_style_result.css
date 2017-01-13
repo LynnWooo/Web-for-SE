@@ -1,0 +1,72 @@
+#search {
+	position: absolute;
+	top: 10%;
+	left: 38%;
+}
+
+.gray-bg {
+	background-color: white;
+}
+
+.item {
+	border:1px solid #e7eaec;
+}
+
+#statistics_number {
+	margin-left: 15.3%;
+	margin-top: 3%;
+}
+
+#compare {
+	margin-left: 15.7%;
+	/*margin-top: 2%;*/
+}
+
+#statistics_echart {
+	/*width: 200px;
+	height: 200px;*/
+	position: absolute;
+	top: 60%;
+	left: 43%;
+	/*border:1px solid black;*/
+}
+/*
+.panel-body {
+	overflow: scroll;
+}*/
+
+.page-heading {
+	height: 150px;
+	background-color: #f0f3f4;
+}
+
+.label {
+	margin-left: 3px;
+}
+
+#movie_detail {
+	/*position: absolute;
+	top: 500px;
+	left: 15%;*/
+	margin-left: 16%;
+	/*margin-top: 3%;*/
+}
+
+#specification {
+	/*position: absolute;
+	top: 200px;
+	left: 40%;*/
+	margin-top: -20%;
+	margin-left: 40%;
+	/*width: 570px;*/
+}
+
+#specification_detail {
+	margin-bottom: 4%;
+}
+
+#addSpecification {
+	margin-top: -7%;
+	margin-bottom: 3%;
+	margin-left: 40%;
+}

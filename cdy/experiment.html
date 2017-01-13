@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> 实验编辑步骤 </title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+
+    <link href="css/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+    <link href="css/plugins/cropper/cropper.min.css" rel="stylesheet">
+
+    <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+
+    <link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+    <link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!-- 自定义css -->
+    <link href="css/cdy_style_result.css" rel="stylesheet">
+    <link href="css/cdy_style_experiment.css" rel="stylesheet">
+    
+
+</head>
+
+<body class="gray-bg">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>同济大学实验助手</h2>
+        </div>
+        <!-- <div class="col-sm-3" id="search">
+            <div class="input-group">
+                <input type="text" placeholder="Movie / Movier" class="input-sm form-control"> 
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-sm btn-primary" >Search</button>
+                </span>
+            </div>
+        </div> -->
+    </div>
+    <div class="row">
+            <div class="col-sm-10" id="statistics_number">
+                <div class="col-sm-4">
+                    <div class="row row-sm text-center">
+                        <div class="col-xs-5">
+                            <div class="panel padder-v item bg-primary" onclick="student();">
+                                <div class="h1 text-fff font-thin h1">1</div>
+                                    <span class="text-muted text-xs">实验参与人数</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5" id="experiment_detail">
+            <div class="wrapper wrapper-content animated fadeInUp">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="m-b-md">
+                                    <h2 id="experiment_name"></h2>
+                                </div>
+                                <dl class="dl-horizontal">
+                                    <dt>上课时间：</dt>
+                                    <dd id="experiment_begin_time"><span class="label label-primary"></span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <dl class="dl-horizontal">
+                                    <dt>实验描述：</dt>
+                                    <span id="experiment_description"></span>
+                                    <dt>附件：</dt>
+                                    <dd><a id="experiment_attach_url" href="">附件</a></dd>
+                                </dl>
+                            </div>
+                            <div class="col-sm-7" id="cluster_info">
+                                <dl class="dl-horizontal">
+
+                                    <dt>图片：</dt>
+                                    <dd><img id="experiment_pic_url"></dd>
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content  animated fadeInRight" style="display:none">
+        <div class="row" id="students">
+            <div class="col-md-3">
+                <h3>选课同学详情（共100人）</h3>
+                <div class="chat-users">
+                    <div class="users-list">
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                        <div class="chat-user">
+                            <img class="chat-avatar" src="img/a1.jpg" alt="">
+                            <div class="chat-user-name">
+                                <a href="#">陈东仪</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="stepBox">
+        <div class="col-sm-6" id="step_detail">
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left:150%">
+                        添加实验步骤
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal inmodal " id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content animated bounceInRight">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+                        </button>
+                        <i class="fa fa-laptop modal-icon"></i>
+                        <h4 class="modal-title" >实验步骤</h4>
+                        <small class="font-bold">编辑界面
+                    </div>
+                    <div>
+                        <form class="form-horizontal m-t" enctype="multipart/form-data" id="insertStep">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"  >步骤名称：</label>
+                                <div class="col-sm-8">
+                                    <input id="cname" name="name" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">建议时间：</label>
+                                <div class="col-sm-5">
+                                    <div class="m-r-md inline">
+                                <input id="suggest_time" type="text" value="75" class="dial m-r-sm" data-fgColor="#ED5565" data-width="85" data-height="85" data-cursor=true data-thickness=.3/>
+                            </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" i>步骤内容：</label>
+                                <div class="col-sm-8">
+                                    <textarea id="content" name="comment" class="form-control" required="" aria-required="true"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >注意事项：</label>
+                                <div class="col-sm-8">
+                                    <textarea id="note"  class="form-control" required="" aria-required="true"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >问题列表：</label>
+                                <div class="col-sm-8">
+                                    <textarea id="question_list" class="form-control" required="" aria-required="true"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >图片列表：</label>
+                                <div class="col-sm-8">
+                                <input id="file" type="file" multiple="multiple" >
+                                <script>
+                                    $('input[type="file"]').prettyFile();
+                                </script>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" id="add-confirm" onclick="addConfirm();">添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- 全局js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+
+    <!-- Chosen -->
+    <script src="js/plugins/chosen/chosen.jquery.js"></script>
+
+    <!-- JSKnob -->
+    <script src="js/plugins/jsKnob/jquery.knob.js"></script>
+
+    <!-- Input Mask-->
+    <script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- Prettyfile -->
+    <script src="js/plugins/prettyfile/bootstrap-prettyfile.js"></script>
+
+    <!-- NouSlider -->
+    <script src="js/plugins/nouslider/jquery.nouislider.min.js"></script>
+
+    <!-- Switchery -->
+    <script src="js/plugins/switchery/switchery.js"></script>
+
+    <!-- IonRangeSlider -->
+    <script src="js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- MENU -->
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Color picker -->
+    <script src="js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+    <!-- Clock picker -->
+    <script src="js/plugins/clockpicker/clockpicker.js"></script>
+
+    <!-- Image cropper -->
+    <script src="js/plugins/cropper/cropper.min.js"></script>
+
+    <script src="js/demo/form-advanced-demo.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+
+
+     <!-- 自定义js -->
+
+    <script src="js/cdy_experiment.js"></script>
+    <script type="js/bootstrap-prettyfile.js"></script>
+
+   
+
+</body>

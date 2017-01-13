@@ -1,0 +1,18 @@
+.changeStatus {
+	position: relative;
+	top: -35px;
+	left: 80%;
+	margin: 0;
+	/*padding: 0;*/
+}
+
+#students{
+	position: relative;
+	left: 60%;
+	top: -150px;
+}
+
+#experiment_detail{
+	margin-left: 10%;
+	padding: 0;
+}

@@ -1,0 +1,17 @@
+#students{
+	margin-left: 10%;
+}
+
+#student-report{
+	/*border:1px solid black;*/
+	/*width: 800px;*/
+	/*height: 600px;*/
+	overflow: hidden;
+	margin-left: 40%;
+	margin-top: -30%;
+}
+#score-box{
+	margin-left: 40%;
+	margin-top: -18%;
+}
+

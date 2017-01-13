@@ -1,0 +1,64 @@
+#search {
+	position: absolute;
+	top: 60%;
+	left: 40%;
+}
+
+#search_type {
+	position: absolute;
+	top: 0%;
+	left: -15%;
+}
+
+.gray-bg {
+	background-color: white;
+}
+
+.item {
+	border:1px solid #e7eaec;
+}
+
+#statistics_number {
+	margin-left: 14%;
+	margin-top: 3%;
+}
+
+#statistics_echart {
+	/*width: 200px;
+	height: 200px;*/
+	position: absolute;
+	top: 60%;
+	left: 43%;
+	/*border:1px solid black;*/
+}
+/*
+.panel-body {
+	overflow: scroll;
+}*/
+
+.page-heading {
+	height: 150px;
+	background-color: #f0f3f4;
+}
+
+.category_image {
+
+}
+
+#category {
+	margin-left: 8%;
+	margin-top: 20%;
+}
+
+/*#category * {
+	border: none;
+}*/
+
+#category h5 {
+	font-size: 3px;
+}
+
+#category .ibox-title {
+	overflow: hidden;
+	/*background-color: white;*/
+}
