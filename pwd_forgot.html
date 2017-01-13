@@ -212,6 +212,7 @@ function sendCode(){
 }
 
 function subForm(){
+	$("#error_box").html("");
 	var temp=checkCode();
 	if(!temp)
 		return;
@@ -219,7 +220,7 @@ function subForm(){
 	var pwd=$("input[name='password']").val();
 	var phone=$("input[name='phone_number']").val();
 	var code=$("input[name='veri_code']").val();
-	var json='identify='+id+'&phonr_number='+phone+'&new_password='+pwd+'&verify_code='+code;
+	var json='identify='+id+'&phone_number='+phone+'&new_password='+pwd+'&verify_code='+code;
 	//alert(json);
 	$.ajax({
 		url:'http://101.200.61.252:8080/user/forget_password',
@@ -229,16 +230,10 @@ function subForm(){
 		type:'POST',
 		success:function(status){
 			if(status==0){
-				alert('注册成功！');
-				setTimeout("window.location.assign('login.html')",3000);
-			}else if(status==1){
-				$("#error_box").html('请填写完整数据！');
-			}else if(status==2){
-				$("#error_box").html('手机号码已存在！');
-			}else if(status==3){
-				$("#error_box").html('验证码错误！');
+				alert('修改成功！');
+				setTimeout("window.location.assign('login.html')",1000);
 			}else{
-				$("#error_box").html('发生未知错误');
+				$("#error_box").html('填写错误！');
 			}
 		}
 	});

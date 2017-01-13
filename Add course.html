@@ -86,7 +86,7 @@
 			</li>
 			<li>
 				<label>课程图片：</label>
-				<input type="file" name="upload">
+				<input type="file" name="upload" id='upload'>
 			</li>
 			<li>
 				<label>课程描述：</label>
@@ -262,19 +262,19 @@ select{
 
 	function subForm(){
 		var time=new Array();
-		var temp=parseInt($("select[name='weekdays']").val())*10+parseInt($("select[name='time']").val());
+		var temp=(parseInt($("select[name='weekdays']").val())-1)*5+parseInt($("select[name='time']").val());
 		time.push(temp);
 		if($("select[name='weekdays_2']").val()!=0){
-			var temp=parseInt($("select[name='weekdays_2']").val())*10+parseInt($("select[name='time_2']").val());
+			var temp=(parseInt($("select[name='weekdays_2']").val())-1)*5+parseInt($("select[name='time_2']").val());
 			time.push(temp);
 		}
-		var a={
-				"name":$("input[name='course_name']").val(),
-				"image":$("input[name='upload']").val(),
-				"teacher_id":login_id,
-				"describe":$("textarea[name='course_desc']").val(),
-				"time_id":time
-			};
+		var a=new FormData();
+				a.append("name",$("input[name='course_name']").val());
+				a.append("image",$("#upload")[0].files[0]);
+				a.append("teacher_id",login_id);
+				a.append("describe",$("textarea[name='course_desc']").val());
+				a.append("time_id",time);
+			
 		alert(a.image+'\n'+a.describe+'\n'+a.time_id);
 		$.ajax({
 			url:'http://101.200.61.252:8080/teacher/insertcourse',
@@ -283,8 +283,12 @@ select{
 			traditional:true,
 			data:a,
 			type:'POST',
+			processData: false,
+        	contentType: false,
 			success:function(data){
-				alert(data.status);
+				alert('success!');
+				setTimeout(window.location.assign('view.html?id='+login_id+'&name='+escape(login_name)),500);
+
 			},
 			error:function(){
 				alert('error');

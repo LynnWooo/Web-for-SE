@@ -321,9 +321,14 @@ function initData(){
         url:'http://101.200.61.252:8080/teacher/courselist',       //untested
         dataType:'json',
         cache:false,
-        data:'identify='+login_id,
+        data:'teacher_id='+login_id,
         type:'POST',
         success:function(data){
+            if(data.length==0)
+            {
+                $("#table_top_guide").html("您还未创建任何课程！");
+                return;
+            }
             for (var i = 0; i < data.length; i++) {
                 courseList[i]=data[i].courseName;
                 idList[i]=data[i].id;
@@ -331,8 +336,14 @@ function initData(){
                 timeList[i]=data[i].time_list[0];
                 statusList[i]=data[i].status;
             }
-        }
+            for (var i = 0; i < courseList.length; i++) {
+                $("#course_table").append(createDiv(courseList[i],idList[i],userList[i],timeList[i],statusList[i]));
+            }
 
+        },
+        error:function(){
+            alert('error');
+        }
     });
 }
 
@@ -344,9 +355,7 @@ function initPage(){
     $("#info_list_name").html("姓名："+login_name);
     $("#info_list_id").html("工号："+login_id);
 
-    for (var i = 0; i < courseList.length; i++) {
-        $("#course_table").append(createDiv(courseList[i],idList[i],userList[i],timeList[i],statusList[i]));
-    }
+    
 }
 
 
@@ -369,16 +378,22 @@ function createDiv(name,id,user,time,status){
     c_user.attr("class","table_user");
 
     var c_time=$("<div></div>");
-    c_time.html(time.toLocaleTimeString());
+    c_time.html(time);
     c_time.attr("class","table_time");
 
     var c_status=$("<div></div>");
-    c_status.html(status);
+    if(status==0)
+        c_status.html("开放中");
+    else if(status==1)
+        c_status.html("暂时关闭");
     c_status.attr('class','table_status');
 
 
     var c_button=$("<div></div>");
-    c_button.html("<button onclick='delCourse("+id+")'>delete</button> <button onclick='courseDetail("+id+"'>detail</button>");
+    if(status==0)
+    c_button.html("<button onclick='delCourse("+id+")'>close</button> <button onclick='courseDetail("+id+"'>detail</button>");
+    else if(status==1)
+        c_button.html("<button onclick='rejoin("+id+")'>Reopen</button> <button onclick='courseDetail("+id+"'>detail</button>");
     c_button.attr('class','table_button');
 
 
@@ -396,14 +411,16 @@ function jump_add_course(){
 }
 function delCourse(id){
     $.ajax({
-        url:'http://101.200.61.252:8080/teacher/cancel',       //not tested
-        dataType:'json',
+        url:'http://101.200.61.252:8080/teacher/cancel',     //tested
         cache:false,
         data:'teacher_id='+login_id+'&course_id='+id,
         type:'POST',
         success:function(data){
-            if(data.status==0)
+            if(data.status==0){
                 alert('success!');
+                window.location.assign("view.html?id="+login_id+"&name="+escape(login_name));
+            }
+
             else
                 alert('error!');
         }
@@ -412,6 +429,25 @@ function delCourse(id){
 }
 function courseDetail(id){
     
+}
+
+function rejoin(id){
+    $.ajax({
+        url:'http://101.200.61.252:8080/teacher/reinsert',       //not tested
+        dataType:'json',
+        cache:false,
+        data:'teacher_id='+login_id+'&course_id='+id,
+        type:'POST',
+        success:function(data){
+            if(data.status==0){
+                alert('success!');
+                window.location.assign("view.html?id="+login_id+"&name="+escape(login_name));
+            }
+
+            else
+                alert('error!');
+        }
+    });
 }
 </script>
 </html>
