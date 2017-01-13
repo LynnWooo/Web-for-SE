@@ -11,14 +11,17 @@ function js_login(){
 	data:'identify='+user_id+'&password='+user_pwd,
 	type:'POST',
 	success:function(data){
-		if(data.status!=null)
-			window.location.assign('view.html');
+		if(data.status==0)
+			window.location.assign('view.html?id='+data.identify+'&name='+escape(data.name));
 		else if(data.status==1)
 			$("#error_box").html('用户不存在');
 		else if(data.status==2)
 			$("#error_box").html('密码错误');
 		else
 			$("#error_box").html('未知错误');
+	},
+	error:function(){
+		$("#error_box").html('未知错误');
 	}
 	});
 }
