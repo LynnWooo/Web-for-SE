@@ -2,6 +2,7 @@ var exper_id;
 var teacher_id;
 var answer;
 var name;
+var nowid;
 $(window).load(function(){
 	exper_id = args().exper_id;
 	teacher_id = args().teacher_id;
@@ -57,6 +58,7 @@ function initStudentList(result){
 function setAction(){
     $(".chat-user").click(function(){
         // alert($(this).find('span').html());
+        nowid = $.trim($(this).find('span').html());
         getReport($.trim($(this).find('span').html()));
     });
 }
@@ -115,6 +117,7 @@ function scoreConfirmClick(){
             success: function (result) {
                 //请求成功时执行该函数内容，result即为服务器返回的json对象
                 if (result) {
+                    getReport(nowid);
                 }
             },
             error: function (errorMsg) {
@@ -135,14 +138,8 @@ function myinit(){
 }
 
 function gohome(){
-    var params = function(args){
-        var p = [];
-        for(var n in args)
-            p.push( n + '=' + args[n]);
-        return unescape('?' + p.join('&'));
-    };
     if (top == this) {
-    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + name + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
+    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + escape(name) + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
     $('body').append(gohome);
 }
 }

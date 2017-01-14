@@ -3,11 +3,13 @@ var exp_detail;
 var exper_id;
 var teacher_id;
 var exper;
+var name;
 $(window).load(function(){
 
     exper = args();
     exper_id = args().exper_id;
     teacher_id = args().teacher_id;
+    name = args().name;
     gohome();
     //初始化实验详情
     $.ajax({
@@ -72,7 +74,7 @@ function args(params){
     var a = {};
     params = params || location.search;
     if(!params)return{};
-    params = decodeURI(params);
+    params = unescape(params);
     params.replace(/(?:^\?|&)([^=&]+)(?:\=)([^=&]+)(?=&|$)/g,function(m,k,v){  a[k] = v; });
     return a;
 }
@@ -81,8 +83,8 @@ function student(){
     var params = function(args){
         var p = [];
         for(var n in args)
-            p.push( n + '=' + args[n]);
-        return unescape('?' + p.join('&'));
+            p.push( n + '=' + escape(args[n]));
+        return ('?' + p.join('&'));
     };
     location.href = 'studentReport.html' + params(exper);
 }
@@ -224,14 +226,8 @@ function test(){
 
 
 function gohome(){
-    var params = function(args){
-        var p = [];
-        for(var n in args)
-            p.push( n + '=' + args[n]);
-        return unescape('?' + p.join('&'));
-    };
     if (top == this) {
-    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + exper.name + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
+    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + escape(name) + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
     $('body').append(gohome);
 }
 }

@@ -1,9 +1,11 @@
 var course_id;
 var data;
+var name;
 $(window).load(function(){
     data = args();
     course_id = args().course_id;
     teacher_id = args().teacher_id;
+    name = args().name;
     gohome();
 	//初始化课程详情
     $.ajax({
@@ -178,8 +180,8 @@ function goexp(id){
     var params = function(args){
         var p = [];
         for(var n in args)
-            p.push( n + '=' + args[n]);
-        return encodeURI('?' + p.join('&'));
+            p.push( n + '=' + escape(args[n]));
+        return ('?' + p.join('&'));
     };
     location.href = 'experiment.html' + params(data);
 }
@@ -188,8 +190,8 @@ function goadd(){
     var params = function(args){
         var p = [];
         for(var n in args)
-            p.push( n + '=' + args[n]);
-        return encodeURI('?' + p.join('&'));
+            p.push( n + '=' + escape(args[n]));
+        return ('?' + p.join('&'));
     };
     location.href = 'add_exp.html' + params(data);
 }
@@ -202,7 +204,7 @@ function gohome(){
         return unescape('?' + p.join('&'));
     };
     if (top == this) {
-    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + data.name + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
+    var gohome = '<div class="gohome"><a class="animated bounceInUp" href="view.html?id=' + teacher_id + '&name=' + escape(name) + '"title="返回首页"><i class="fa fa-home"></i></a></div>';
     $('body').append(gohome);
 }
 }
